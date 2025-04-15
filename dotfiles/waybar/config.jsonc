@@ -1,0 +1,101 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "margin-top": 9,
+  "modules-left": [
+    "custom/espaco",
+    "custom/cpu",
+    "custom/memoria",
+    "custom/tasks",
+    "custom/gpu",
+    "pulseaudio",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/cmus",
+    "custom/bateria",
+    "tray",
+    "custom/calendario"
+  ],
+
+  "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+//			"1": "一",
+//			"2": "二",
+//			"3": "三",
+//			"4": "四",
+//			"5": "五",
+			"urgent": "",
+			"active": "",
+			"default": "󰧞",
+	"sort-by-number": true
+		},
+	},
+
+"pulseaudio": {
+  "format": " : {volume}%",
+  "format-muted": " : Muted",
+  "on-click": "pavucontrol"
+},
+
+  // Módulos personalizados
+  "custom/espaco": {
+    "exec": "~/Documentos/scripts/disk.sh",
+    "interval": 60,
+    "return-type": "text",
+    "format": " : {}"
+  },
+  "custom/cpu": {
+	  "exec": "echo \" : $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf(\"%.1f%%\", usage)}')\"",
+	  "interval": 2,
+	  "return-type": "text"
+  },
+  "custom/memoria": {
+    "exec": "~/Documentos/scripts/memBlock.sh",
+    "interval": 5,
+    "return-type": "text",
+    "on-click": "notify-send \"$(ps axch -o cmd:15,%mem --sort=-%mem | head)\"",
+    "format": " : {}"
+  },
+  "custom/tasks": {
+    "exec": "~/Documentos/scripts/nTasks.sh",
+    "interval": 5,
+    "return-type": "text",
+    "format": " : {}"
+  },
+  "custom/gpu": {
+    "exec": "~/Documentos/scripts/gpuBlock.sh",
+    "interval": 2,
+    "return-type": "text",
+    "format": " : {}"
+  },
+  "custom/cmus": {
+    "exec": "~/Documentos/scripts/cmusPlaying.sh",
+    "interval": 1,
+    "return-type": "text"
+  },
+  "custom/bateria": {
+    "exec": "~/Documentos/scripts/bateria.sh",
+    "interval": 5,
+    "return-type": "text",
+    "format": " : {}"
+  },
+  "custom/calendario": {
+    "exec": "~/Documentos/scripts/dataBlockPolybar.sh",
+    "interval": 30,
+    "on-click": "notify-send \"$(cal)\"",
+    "return-type": "text"
+  }
+}
+

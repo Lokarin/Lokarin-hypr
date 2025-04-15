@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# O input "$1" será o texto do dmenu
+# e o input "$2" será o comando a ser rodado.
+
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+[ "$(echo -e "Não\nSim" | rofi -dmenu -i)" == "Sim" ] && $1

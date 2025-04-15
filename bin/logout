@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+escolha=$(echo -e "Nada\nDesligar\nReiniciar\nLogout\nSuspender" | rofi -dmenu -i -p "Realizar...")
+
+case $escolha in
+	Nada) ;;
+	Desligar) poweroff;;
+	Reiniciar) reboot;;
+	Logout) i3-msg exit;;
+	Suspender) systemctl suspend;;
+esac

@@ -1,0 +1,28 @@
+configuration {
+    font: "Monospace 11";
+    width: 500;
+    lines: 8;
+    display-drun: "Aplicações";
+    display-window: "Janelas";
+    display-combi: "Combi";
+
+    /* Configurações para ícones */
+    show-icons: true;
+    icon-theme: "Papirus";  /* Substitua pelo tema de ícones que você usa */
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-show-actions: true;
+}
+
+/* Importando o tema gerado pelo pywal */
+@import "~/.cache/wal/colors-rofi-dark"
+
+window {
+    transparency: "real";
+    opacity: 0.85;
+    width: 500px;
+    border-radius: 7px;
+}
+
+element selected {
+    border-radius: 4px;
+}

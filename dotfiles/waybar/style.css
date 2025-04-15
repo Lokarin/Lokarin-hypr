@@ -1,0 +1,57 @@
+@import url("file:///home/lokarin/.cache/wal/colors-waybar.css");
+
+* {
+  font-family: "Noto Sans", "Font Awesome 6 Free Solid", "Nimbus Roman";
+  font-size: 15px;
+  border: none;
+  padding: 0 3px;
+}
+
+window#waybar {
+  background: transparent;
+  border-radius: 0px;
+  color: #ffffff;
+}
+
+#workspaces {
+	background: rgba(0, 17, 17, 1);
+	padding: 0px 0px 0px 5px;
+	border-radius: 13px;
+	border-bottom: 3px solid @color4;
+}
+#workspaces button {
+    padding: 0px 5px;
+    border-radius: 13px;
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: @color4;
+    background-color: transparent;
+    border-radius: 13px;
+}
+
+#workspaces button:hover {
+	background-color: #E6B9C6;
+	color: black;
+	border-radius: 13px;
+}
+
+#custom-arrow,
+#custom-calendario,
+#custom-bateria,
+#custom-cmus,
+#custom-gpu,
+#custom-tasks,
+#custom-memoria,
+#custom-cpu,
+#tray,
+#pulseaudio,
+#custom-espaco {
+  background: rgba(0, 17, 17, 1);
+  border-bottom: 3px solid @color4;
+  border-radius: 13px;
+  padding: 0 8px;
+  margin: 0 5px;
+}
+

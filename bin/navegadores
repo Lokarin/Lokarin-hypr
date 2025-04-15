@@ -1,0 +1,12 @@
+nav=$(echo -e "Zen\nBrave\nFirefox\nCliqz\nQutebrowser\nVimb\nTor\nLibreWolf" | rofi -dmenu -i -p "Navegador")
+
+case $nav in
+    Cliqz) cliqz ;;
+    Qutebrowser) qutebrowser ;;
+    Firefox) firefox ;;
+    Brave) brave %U --password-store=basic ;;
+    Vimb) vimb ;;
+    Tor) tor-browser ;;
+    LibreWolf) librewolf ;;
+    Zen) zen-browser ;;
+esac

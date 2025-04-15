@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Pede o link do vídeo
+link=$(rofi -dmenu -p "Link: " -theme ~/.config/rofi/config.rasi)
+
+# Se o usuário não inserir um link, sai do script
+if [ -z "$link" ]; then
+    exit 0
+fi
+
+# Lista de gêneros
+generos="Jazz
+Rock
+Eletro
+Relax
+ElectroSwing
+Eurobeat
+Orquestral
+Phonk"
+
+# Pede para escolher o gênero - enviando os gêneros para o stdin do rofi
+gen=$(echo -e "$generos" | rofi -dmenu -i -p "Gênero: ")
+
+# Se o usuário não escolher um gênero, sai do script
+if [ -z "$gen" ]; then
+    exit 0
+fi
+
+# Define o diretório de saída baseado no gênero escolhido
+gen1="$HOME/Músicas/${gen}/%(title)s.%(ext)s"
+echo $gen1
+
+# Faz o download e converte para MP3
+yt-dlp --extract-audio --add-metadata --output "$gen1" --audio-format mp3 "$link" && \
+# Usando notify-send com configurações para Wayland (funciona no Hyprland)
+if command -v notify-send >/dev/null 2>&1; then
+    notify-send -a "Download MP3" "Download concluído" "Música baixada em $HOME/Músicas/$gen"
+elif command -v dunstify >/dev/null 2>&1; then
+    dunstify -a "Download MP3" "Download concluído" "Música baixada em $HOME/Músicas/$gen"
+else
+    echo "Download concluído! Música baixada em $HOME/Músicas/$gen"
+fi

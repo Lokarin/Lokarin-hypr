@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+# Importar cores do pywal se precisar
+#. "${HOME}/.cache/wal/colors.sh"
+
+# Interromper qualquer instância anterior
+killall gammastep 2>/dev/null
+
+# Menu com Rofi
+opcao=$(echo -e "Dia\nNoite" | rofi -dmenu -i -p "Modo")
+
+case $opcao in
+  Noite) gammastep -O 3500 & ;;
+  Dia) gammastep -O 6500 & ;;
+esac
+

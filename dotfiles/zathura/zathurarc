@@ -1,0 +1,3 @@
+set selection-clipboard clipboard
+set recolor false
+set first-page-column 2:1

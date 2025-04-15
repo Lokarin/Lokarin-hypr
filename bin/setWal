@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls ~/Imagens/WallPapers/*.{jpg,png,jpeg} | sxiv -tiof | xargs $HOME/bin/pywaltic

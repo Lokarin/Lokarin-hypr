@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Caminho do diretório de wallpapers
+WALL_DIR="$HOME/Imagens/WallPapers"
+
+# Se um argumento for passado, usa ele. Caso contrário, escolhe um aleatório do diretório
+if [[ -n "$1" ]]; then
+    IMAGE="$1"
+else
+    IMAGE=$(find "$WALL_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
+fi
+
+# Verifica se a imagem existe
+if [[ ! -f "$IMAGE" ]]; then
+    echo "Erro: imagem não encontrada."
+    exit 1
+fi
+
+# Gera a paleta com pywal
+wal -i "$IMAGE" --saturate 0.7
+
+# Aguarda o wal gerar os arquivos
+sleep 0.5
+
+# Inicia o swww se não estiver rodando
+pgrep swww >/dev/null || swww init
+
+# Usa o caminho salvo pelo wal (só por segurança)
+WALL=$(cat ~/.cache/wal/wal)''
+
+# Aplica o wallpaper com transição
+swww img "$WALL" --transition-type simple --transition-duration 1
+
+$HOME/.config/mako/launchMako.sh
+
+killall waybar
+waybar &
