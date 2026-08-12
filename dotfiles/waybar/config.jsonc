@@ -26,8 +26,8 @@
         "active-only": false,
         "all-outputs": true,
         "disable-scroll": false,
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
 		"format": "{icon}",
 		"on-click": "activate",
 		"format-icons": {
@@ -56,10 +56,15 @@
     "return-type": "text",
     "format": " : {}"
   },
+  //"custom/cpu": {
+  //    "exec": "echo \" : $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf(\"%.1f%%\", usage)}')\"",
+  //    "interval": 2,
+  //    "return-type": "text"
+  //},
   "custom/cpu": {
-	  "exec": "echo \" : $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf(\"%.1f%%\", usage)}')\"",
-	  "interval": 2,
-	  "return-type": "text"
+    "exec": "~/.config/waybar/scripts/cpu.sh",
+    "interval": 1,
+    "return-type": "text"
   },
   "custom/memoria": {
     "exec": "~/Documentos/scripts/memBlock.sh",

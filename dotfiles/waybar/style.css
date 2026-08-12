@@ -14,7 +14,8 @@ window#waybar {
 }
 
 #workspaces {
-	background: rgba(0, 17, 17, 1);
+	/*background: rgba(0, 17, 17, 1);*/
+	background: @color0;
 	padding: 0px 0px 0px 5px;
 	border-radius: 13px;
 	border-bottom: 3px solid @color4;
@@ -48,7 +49,8 @@ window#waybar {
 #tray,
 #pulseaudio,
 #custom-espaco {
-  background: rgba(0, 17, 17, 1);
+  /*background: rgba(0, 17, 17, 1);*/
+  background: @color0;
   border-bottom: 3px solid @color4;
   border-radius: 13px;
   padding: 0 8px;

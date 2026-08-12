@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
-# Descobre o número do workspace atual
-ws=$(hyprctl activeworkspace -j | jq '.id')
+# Workspace atual
+ws=$(hyprctl activeworkspace -j | jq -r '.id')
 
-# Argumento: direção (left/right)
-dir=$1
+# Monitor atual
+cur=$(hyprctl activeworkspace -j | jq -r '.monitorID')
 
-# Descobre o monitor de destino
-mon=$(hyprctl monitors -j | jq -r --argjson cur "$(hyprctl activeworkspace -j | jq '.monitorID')" '
-  map(select(.id != $cur)) | .[0].name')
+# Outro monitor
+mon=$(hyprctl monitors -j |
+    jq -r --argjson cur "$cur" '
+        map(select(.id != $cur)) | .[0].name
+    ')
 
-# Executa o comando para mover o workspace
-hyprctl dispatch moveworkspacetomonitor "$ws" "$mon"
+# Move o workspace para o outro monitor
+hyprctl dispatch "hl.dsp.workspace.move({ workspace = $ws, monitor = \"$mon\" })"
