@@ -37,8 +37,8 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "SPACE", hl.dsp.window.float())
 hl.bind(mainMod .. " + " .. "D", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- Mover foco com vim keys
-hl.bind(mainMod .. " + L",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + L",  hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 

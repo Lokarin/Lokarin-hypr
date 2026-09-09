@@ -3,7 +3,7 @@
 # Import the colors
 . "${HOME}/.cache/wal/colors.sh"
 
-escolha=$(echo -e "Nada\nDesligar\nReiniciar\nLogout\nSuspender" | rofi -dmenu -i -p "Realizar...")
+escolha=$(echo -e "Nada\nDesligar\nReiniciar\nLogout\nSuspender" | rofi -dmenu -i -p " ")
 
 case $escolha in
 	Nada) ;;

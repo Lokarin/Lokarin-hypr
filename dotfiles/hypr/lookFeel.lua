@@ -88,3 +88,29 @@ local suppressMaximizeRule = hl.window_rule({
 
     suppress_event = "maximize",
 })
+
+hl.layer_rule({
+    name = "waybar",
+    match = {
+        namespace = "waybar",
+    },
+
+    blur = true,
+})
+
+hl.layer_rule({
+    name = "notifications",
+    match = {
+        namespace = "notifications",
+    },
+
+    blur = true,
+})
+
+hl.layer_rule({
+    name = "rofi",
+    match = {
+        namespace = "rofi",
+    },
+    blur = true,
+})

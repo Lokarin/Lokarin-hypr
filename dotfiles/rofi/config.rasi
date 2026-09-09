@@ -1,28 +1,94 @@
 configuration {
-    font: "Monospace 11";
-    width: 500;
-    lines: 8;
-    display-drun: "Aplicações";
+    font: "Iosevka Nerd Font 12";
+    lines: 7;
+    display-drun: " ";
     display-window: "Janelas";
     display-combi: "Combi";
 
     /* Configurações para ícones */
     show-icons: true;
     icon-theme: "Papirus";  /* Substitua pelo tema de ícones que você usa */
-    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    //drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-display-format: "{name}";
     drun-show-actions: true;
 }
 
 /* Importando o tema gerado pelo pywal */
-@import "~/.cache/wal/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 
 window {
     transparency: "real";
-    opacity: 0.85;
-    width: 500px;
-    border-radius: 7px;
+    width: 600px;
+    border-radius: 4px;
+}
+
+#window {
+    background-color: #1d1922BF;
+}
+
+#mainbox {
+    background-color: transparent;
+}
+
+#inputbar {
+    background-color: transparent;
+}
+
+element {
+    padding: 8px;
+    spacing: 12px;
+}
+
+element-icon {
+    size: 24px;
+}
+
+#prompt {
+    background-color: transparent;
+    text-color: @selected-urgent-background;
+}
+
+#textbox-prompt-colon {
+    background-color: transparent;
+    str: " ";
 }
 
 element selected {
-    border-radius: 4px;
+    background-color: transparent;
+    border: 0 0 0 3px;
+    border-color: @selected-normal-background;
+}
+
+#element.selected.normal {
+    background-color: transparent;
+    text-color: @selected-normal-background;
+
+    border: 0 0 3 0px;
+    border-color: @selected-normal-background;
+}
+
+#listview {
+    scrollbar: false;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#element.normal.normal {
+    background-color: transparent;
+    text-color: @normal-foreground;
+}
+
+#element.alternate.normal {
+    background-color: transparent;
+    text-color: @alternate-normal-foreground;
+}
+
+#entry {
+    background-color: transparent;
+}
+
+#case-indicator {
+    background-color: transparent;
+    spacing: 0;
+    text-color: @normal-foreground;
 }

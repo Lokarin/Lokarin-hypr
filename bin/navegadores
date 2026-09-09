@@ -1,4 +1,4 @@
-nav=$(echo -e "Zen\nBrave\nFirefox\nCliqz\nQutebrowser\nVimb\nTor\nLibreWolf" | rofi -dmenu -i -p "Navegador")
+nav=$(echo -e "Zen\nBrave\nFirefox\nCliqz\nQutebrowser\nVimb\nTor\nLibreWolf" | rofi -dmenu -i -p " ")
 
 case $nav in
     Cliqz) cliqz ;;

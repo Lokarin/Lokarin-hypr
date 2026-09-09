@@ -7,20 +7,20 @@ source "${HOME}/.cache/wal/colors.sh"
 cat > ~/.cache/mako_pywal_config <<EOF
 max-visible=7
 sort=-time
-output=HDMI-A-1
+output=eDP-1
 layer=top
 anchor=top-right
 
-font=monospace 10
-background-color=${color0}BF         
+font=Iosevka Nerd Font 11
+background-color=${color0}A6
 text-color=${color7}
 width=300
 height=200
-margin=10
+margin=0
 padding=5
-border-size=2
+border-size=3
 border-color=${color4}               
-border-radius=10
+border-radius=3
 progress-color=over ${color4}F0
 icons=1
 max-icon-size=64

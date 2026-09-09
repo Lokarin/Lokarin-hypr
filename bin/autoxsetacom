@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+xsetwacom set 17 MapToOutput 1920x1080+1920+0 && xsetwacom set 22 area 0 0 15200 8550 

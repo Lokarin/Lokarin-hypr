@@ -1,59 +1,124 @@
 @import url("file:///home/lokarin/.cache/wal/colors-waybar.css");
 
+
+/* ============================================================
+ * GLOBAL
+ * ============================================================ */
+
 * {
-  font-family: "Noto Sans", "Font Awesome 6 Free Solid", "Nimbus Roman";
-  font-size: 15px;
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
+
   border: none;
-  padding: 0 3px;
+  padding: 0 1.5px;
 }
 
+
+/* ============================================================
+ * WAYBAR
+ * ============================================================ */
+
 window#waybar {
-  background: transparent;
-  border-radius: 0px;
+  background: alpha(@color0, 0.65);
+
+  border-radius: 0;
+}
+
+
+/* ============================================================
+ * MÓDULOS
+ * ============================================================ */
+
+/*
+ * Todos os módulos fazem parte de uma única barra.
+ */
+
+#custom-espaco,
+#custom-cpu,
+#custom-memoria,
+#custom-tasks,
+#custom-gpu,
+#pulseaudio,
+#custom-cmus,
+#custom-bateria,
+#tray,
+#custom-calendario {
+  padding: 0 10px;
+  margin: 0 5px;
+
+  border-radius: 0;
+}
+
+
+/* ============================================================
+ * ACCENTS
+ * ============================================================ */
+
+#custom-espaco {
+  border-bottom: 3px solid @color1;
+}
+
+#custom-cpu {
+  border-bottom: 3px solid @color2;
+}
+
+#custom-memoria {
+  border-bottom: 3px solid @color3;
+}
+
+#custom-tasks {
+  border-bottom: 3px solid @color4;
+}
+
+#custom-gpu {
+  border-bottom: 3px solid @color5;
+}
+
+#pulseaudio {
+  border-bottom: 3px solid @color6;
+}
+
+#custom-cmus {
+  border-bottom: 3px solid @color1;
+}
+
+#custom-bateria {
+  border-bottom: 3px solid @color2;
+}
+
+#tray {
+  border-bottom: 3px solid @color3;
+}
+
+#custom-calendario {
+  border-bottom: 3px solid @color4;
+}
+
+
+/* ============================================================
+ * WORKSPACES
+ * ============================================================ */
+
+#workspaces {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  border-radius: 0;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+
+  border-radius: 0;
   color: #ffffff;
 }
 
-#workspaces {
-	/*background: rgba(0, 17, 17, 1);*/
-	background: @color0;
-	padding: 0px 0px 0px 5px;
-	border-radius: 13px;
-	border-bottom: 3px solid @color4;
-}
-#workspaces button {
-    padding: 0px 5px;
-    border-radius: 13px;
-    color: #ffffff;
-}
-
 #workspaces button.active {
-    color: @color4;
-    background-color: transparent;
-    border-radius: 13px;
+  color: @color4;
+  background-color: transparent;
 }
 
 #workspaces button:hover {
-	background-color: #E6B9C6;
-	color: black;
-	border-radius: 13px;
+  background-color: #E6B9C6;
+  color: black;
 }
-
-#custom-arrow,
-#custom-calendario,
-#custom-bateria,
-#custom-cmus,
-#custom-gpu,
-#custom-tasks,
-#custom-memoria,
-#custom-cpu,
-#tray,
-#pulseaudio,
-#custom-espaco {
-  /*background: rgba(0, 17, 17, 1);*/
-  background: @color0;
-  border-bottom: 3px solid @color4;
-  border-radius: 13px;
-  padding: 0 8px;
-  margin: 0 5px;
-}
-

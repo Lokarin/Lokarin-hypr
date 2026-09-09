@@ -7,7 +7,7 @@
 killall gammastep 2>/dev/null
 
 # Menu com Rofi
-opcao=$(echo -e "Dia\nNoite" | rofi -dmenu -i -p "Modo")
+opcao=$(echo -e "Dia\nNoite" | rofi -dmenu -i -p "󱩌 ")
 
 case $opcao in
   Noite) gammastep -O 3500 & ;;

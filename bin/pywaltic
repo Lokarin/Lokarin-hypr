@@ -22,16 +22,18 @@ wal -i "$IMAGE" --saturate 0.7
 # Aguarda o wal gerar os arquivos
 sleep 0.5
 
-# Inicia o swww se não estiver rodando
-pgrep swww >/dev/null || swww init
+# Inicia awww
+#pgrep -x awww-daemon > /dev/null || awww-daemon &
+#sleep 0.2
 
 # Usa o caminho salvo pelo wal (só por segurança)
-WALL=$(cat ~/.cache/wal/wal)''
+WALL=$(cat ~/.cache/wal/wal)
 
 # Aplica o wallpaper com transição
-swww img "$WALL" --transition-type simple --transition-duration 1
+awww img "$WALL" --transition-type simple --transition-step 10
 
 $HOME/.config/mako/launchMako.sh
 
 killall waybar
+pkill kded6
 waybar &

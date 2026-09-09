@@ -21,5 +21,5 @@ else
   cpu=$((100 * (diff_total - diff_idle) / diff_total))
 fi
 
-printf " : %d%%\n" "$cpu"
+printf "  %d%%\n" "$cpu"
 
